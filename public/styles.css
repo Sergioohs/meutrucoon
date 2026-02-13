@@ -1,0 +1,173 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --card: #151f32;
+  --card-2: #1d2940;
+  --accent: #f97316;
+  --accent-2: #06b6d4;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #172338, var(--bg));
+  color: var(--text);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--card-2), var(--card));
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hidden { display: none; }
+
+h1, h2, h3 { margin-top: 0; }
+
+form {
+  display: grid;
+  gap: 8px;
+}
+
+input, button {
+  border-radius: 10px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: var(--text);
+  padding: 10px;
+}
+
+button {
+  background: linear-gradient(90deg, var(--accent), #fb7185);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: linear-gradient(90deg, #334155, #475569);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.badge {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 12px;
+}
+
+.players ul,
+.log ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.players li,
+.log li {
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #334155;
+}
+
+.players .active {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.4) inset;
+}
+
+.table-cards {
+  min-height: 180px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.played-card,
+.hand-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.my-hand {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hand-card {
+  min-width: 120px;
+}
+
+.hand-card button {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.log ul {
+  max-height: 260px;
+  overflow: auto;
+}
+
+small,
+#statusText { color: var(--muted); }
+
+@media (max-width: 980px) {
+  .scoreboard { grid-template-columns: 1fr 1fr; }
+  .grid { grid-template-columns: 1fr; }
+}

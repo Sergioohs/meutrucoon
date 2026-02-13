@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truco Paulista Pro</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="joinScreen" class="card">
+        <h1>🃏 Truco Paulista Pro</h1>
+        <p>Experiência multiplayer em tempo real para 4 jogadores (duplas).</p>
+        <form id="joinForm">
+          <label for="roomId">Sala</label>
+          <input id="roomId" value="SALA1" maxlength="10" required />
+          <label for="playerName">Nome</label>
+          <input id="playerName" maxlength="20" required />
+          <button type="submit">Entrar na mesa</button>
+        </form>
+        <small>Compartilhe o código da sala para seus amigos entrarem.</small>
+      </section>
+
+      <section id="tableScreen" class="hidden">
+        <header class="topbar card">
+          <div>
+            <h2 id="roomLabel">Sala</h2>
+            <p id="statusText">Aguardando jogadores...</p>
+          </div>
+          <div class="topbar-actions">
+            <button id="copyRoom" class="secondary">Copiar sala</button>
+            <button id="resetMatch" class="secondary">Nova partida</button>
+          </div>
+        </header>
+
+        <section class="card scoreboard">
+          <div class="badge">Dupla 1: <strong id="score0">0</strong></div>
+          <div class="badge">Dupla 2: <strong id="score1">0</strong></div>
+          <div class="badge">Mão vale: <strong id="stake">1</strong></div>
+          <div class="badge">Vira: <strong id="vira">-</strong></div>
+          <div class="badge">Manilha: <strong id="manilha">-</strong></div>
+        </section>
+
+        <div class="grid">
+          <section class="card players" id="playersPanel"></section>
+
+          <section class="card center">
+            <h3>Mesa</h3>
+            <div id="tableCards" class="table-cards"></div>
+            <div id="trucoPanel" class="actions"></div>
+          </section>
+
+          <section class="card log">
+            <h3>Log da partida</h3>
+            <ul id="logList"></ul>
+          </section>
+        </div>
+
+        <section class="card hand-panel">
+          <h3>Sua mão</h3>
+          <div id="myHand" class="my-hand"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
