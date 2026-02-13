@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truco Paulista Pro</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="joinScreen" class="card">
+        <h1>🃏 Truco Paulista Pro</h1>
+        <p>Multiplayer em tempo real (4 jogadores, duplas).</p>
+        <form id="joinForm">
+          <label>Sala</label>
+          <input id="roomId" value="SALA1" maxlength="10" required />
+          <label>Nome</label>
+          <input id="playerName" maxlength="20" required />
+          <button type="submit">Entrar</button>
+        </form>
+        <small>Convide amigos para entrar na mesma sala.</small>
+      </section>
+
+      <section id="tableScreen" class="hidden">
+        <header class="topbar card">
+          <div>
+            <h2 id="roomLabel">Sala</h2>
+            <p id="statusText">Aguardando...</p>
+          </div>
+          <div class="score">
+            <span>Dupla 1: <strong id="score0">0</strong></span>
+            <span>Dupla 2: <strong id="score1">0</strong></span>
+            <span>Mão: <strong id="stake">1</strong></span>
+          </div>
+        </header>
+
+        <div class="grid">
+          <section class="card players" id="playersPanel"></section>
+          <section class="card center">
+            <p>Vira: <strong id="vira"></strong> | Manilha: <strong id="manilha"></strong></p>
+            <div id="tableCards" class="table-cards"></div>
+            <div id="trucoPanel" class="actions"></div>
+          </section>
+        </div>
+
+        <section class="card hand-panel">
+          <h3>Sua mão</h3>
+          <div id="myHand" class="my-hand"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

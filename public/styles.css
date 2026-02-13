@@ -1,0 +1,137 @@
+:root {
+  color-scheme: dark;
+  --bg: #10131c;
+  --card: #1a1f2e;
+  --accent: #f97316;
+  --accent-2: #22d3ee;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1f2937, var(--bg));
+  color: var(--text);
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: linear-gradient(180deg, #1f2435, var(--card));
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hidden { display: none; }
+
+h1, h2, h3 { margin-top: 0; }
+
+form {
+  display: grid;
+  gap: 8px;
+}
+
+input, button {
+  border-radius: 10px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: var(--text);
+  padding: 10px;
+}
+
+button {
+  background: linear-gradient(90deg, var(--accent), #fb7185);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: linear-gradient(90deg, #334155, #64748b);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.score {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 12px;
+}
+
+.players ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.players li {
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #334155;
+}
+
+.players .active {
+  border-color: var(--accent-2);
+}
+
+.table-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.played-card, .hand-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.my-hand {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hand-card button {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+small, #statusText { color: var(--muted); }
+
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+}
